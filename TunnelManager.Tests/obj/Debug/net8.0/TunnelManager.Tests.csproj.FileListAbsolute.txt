@@ -462,7 +462,6 @@ E:\Interwave Solutions\Service Manager\TunnelManager\TunnelManager.Tests\bin\Deb
 E:\Interwave Solutions\Service Manager\TunnelManager\TunnelManager.Tests\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 E:\Interwave Solutions\Service Manager\TunnelManager\TunnelManager.Tests\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 E:\Interwave Solutions\Service Manager\TunnelManager\TunnelManager.Tests\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
-E:\Interwave Solutions\Service Manager\TunnelManager\TunnelManager.Tests\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\Interwave Solutions\Service Manager\TunnelManager\TunnelManager.Tests\bin\Debug\net8.0\Azure.Core.dll
 E:\Interwave Solutions\Service Manager\TunnelManager\TunnelManager.Tests\bin\Debug\net8.0\Azure.Identity.dll
 E:\Interwave Solutions\Service Manager\TunnelManager\TunnelManager.Tests\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll

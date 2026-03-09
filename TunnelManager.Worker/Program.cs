@@ -9,24 +9,11 @@ builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
-// ─── Health Endpoint (public — no auth required) ───────────────────────────
-app.MapGet("/health", (TunnelProcessService processService) =>
+// Health endpoint so Render and UptimeRobot can ping it
+app.MapGet("/health", () => Results.Ok(new
 {
-    var statuses = processService.GetAllStatuses();
-
-    return Results.Ok(new
-    {
-        status = "healthy",
-        tunnelCount = statuses.Count,
-        runningSince = DateTime.UtcNow, // approximation; exact value tracked in TunnelManagerService
-        tunnels = statuses.Select(s => new
-        {
-            hostname = s.Hostname,
-            port = s.LocalPort,
-            isRunning = s.IsRunning,
-            restarts = s.RestartCount
-        })
-    });
-});
+    status = "healthy",
+    timestamp = DateTime.UtcNow
+}));
 
 app.Run();

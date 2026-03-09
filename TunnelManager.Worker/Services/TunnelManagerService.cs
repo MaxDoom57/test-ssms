@@ -58,6 +58,18 @@ public class TunnelManagerService : BackgroundService
         // ── MONITORING LOOP ────────────────────────────────────────────────
         while (!stoppingToken.IsCancellationRequested)
         {
+            // Self ping every 5 minutes to prevent Render free tier spin down
+            if (DateTime.UtcNow.Minute % 5 == 0)
+            {
+                try
+                {
+                    using var pingClient = _httpClientFactory.CreateClient();
+                    await pingClient.GetAsync("http://localhost:8080/health", stoppingToken);
+                    _logger.LogInformation("Self-ping successful");
+                }
+                catch { /* ignore ping failures */ }
+            }
+
             try
             {
                 await Task.Delay(TimeSpan.FromSeconds(MonitoringIntervalSeconds), stoppingToken);

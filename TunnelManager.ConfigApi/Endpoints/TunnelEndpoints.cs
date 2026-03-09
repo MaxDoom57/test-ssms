@@ -58,7 +58,7 @@ public static class TunnelEndpoints
                     Credential = credential
                 });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Results.Problem(
                     detail: "Vault unavailable",

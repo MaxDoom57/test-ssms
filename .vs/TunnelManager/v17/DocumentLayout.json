@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\Interwave Solutions\\Service Manager\\TunnelManager\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A492A378-36D7-427D-8B02-808813EF43E0}|TunnelManager.ConfigApi\\TunnelManager.ConfigApi.csproj|e:\\interwave solutions\\service manager\\tunnelmanager\\tunnelmanager.configapi\\endpoints\\tunnelendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A492A378-36D7-427D-8B02-808813EF43E0}|TunnelManager.ConfigApi\\TunnelManager.ConfigApi.csproj|solutionrelative:tunnelmanager.configapi\\endpoints\\tunnelendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A492A378-36D7-427D-8B02-808813EF43E0}|TunnelManager.ConfigApi\\TunnelManager.ConfigApi.csproj|e:\\interwave solutions\\service manager\\tunnelmanager\\tunnelmanager.configapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A492A378-36D7-427D-8B02-808813EF43E0}|TunnelManager.ConfigApi\\TunnelManager.ConfigApi.csproj|solutionrelative:tunnelmanager.configapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TunnelEndpoints.cs",
+              "DocumentMoniker": "E:\\Interwave Solutions\\Service Manager\\TunnelManager\\TunnelManager.ConfigApi\\Endpoints\\TunnelEndpoints.cs",
+              "RelativeDocumentMoniker": "TunnelManager.ConfigApi\\Endpoints\\TunnelEndpoints.cs",
+              "ToolTip": "E:\\Interwave Solutions\\Service Manager\\TunnelManager\\TunnelManager.ConfigApi\\Endpoints\\TunnelEndpoints.cs",
+              "RelativeToolTip": "TunnelManager.ConfigApi\\Endpoints\\TunnelEndpoints.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAIAwwDwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T07:12:05.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\Interwave Solutions\\Service Manager\\TunnelManager\\TunnelManager.ConfigApi\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "TunnelManager.ConfigApi\\Properties\\launchSettings.json",

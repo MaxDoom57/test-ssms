@@ -26,9 +26,7 @@ public class InternalKeyMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
-        // Health endpoint is exempt from key validation
-        if (context.Request.Path.StartsWithSegments("/health") ||
-            context.Request.Path.StartsWithSegments("/tunnels/health"))
+        if (context.Request.Path.StartsWithSegments("/health"))
         {
             await _next(context);
             return;

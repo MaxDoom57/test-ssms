@@ -48,7 +48,10 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<TunnelDbContext>();
-    db.Database.Migrate();
+    if (db.Database.ProviderName != "Microsoft.EntityFrameworkCore.Sqlite")
+    {
+        db.Database.Migrate();
+    }
 }
 
 // ─── Middleware Pipeline ───────────────────────────────────────────────────
@@ -59,6 +62,9 @@ app.UseMiddleware<InternalKeyMiddleware>();
 
 // ─── Endpoints ─────────────────────────────────────────────────────────────
 app.MapTunnelEndpoints();
+
+app.MapGet("/health", () => Results.Ok(new { status = "healthy" }))
+   .AllowAnonymous();
 
 app.Run();
 
