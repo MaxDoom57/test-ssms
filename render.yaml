@@ -36,7 +36,6 @@ services:
         generateValue: true
       - key: ASPNETCORE_URLS
         value: http://0.0.0.0:10000
-    healthCheckPath: /health
 
   # ── Tunnel Manager Worker ──────────────────────────────────────────
   - type: worker
