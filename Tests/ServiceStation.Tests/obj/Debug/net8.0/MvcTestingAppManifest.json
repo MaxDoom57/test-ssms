@@ -1,0 +1,7 @@
+{
+  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Interwave Solutions\\Service station\\Application",
+  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Interwave Solutions\\Service station\\Domain",
+  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Interwave Solutions\\Service station\\Infrastructure",
+  "ServiceStationApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Interwave Solutions\\Service station\\Api",
+  "Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Interwave Solutions\\Service station\\Shared"
+}

@@ -1,0 +1,1711 @@
+[
+  {
+    "ContainingType": "Api.Controllers.AuthController",
+    "Method": "GetAccessLevel",
+    "RelativePath": "api/ssms/v0.1/accessLevel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayController",
+    "Method": "GetBays",
+    "RelativePath": "api/ssms/v0.1/bay",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayController",
+    "Method": "AddBay",
+    "RelativePath": "api/ssms/v0.1/bay",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Bay.CreateBayDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayController",
+    "Method": "UpdateBay",
+    "RelativePath": "api/ssms/v0.1/bay",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Bay.UpdateBayDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayController",
+    "Method": "DeleteBay",
+    "RelativePath": "api/ssms/v0.1/bay/{bayKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bayKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayControlController",
+    "Method": "GetAvailableBaysNow",
+    "RelativePath": "api/ssms/v0.1/baycontrol/available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayControlController",
+    "Method": "GetReservableBays",
+    "RelativePath": "api/ssms/v0.1/baycontrol/reservable",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayControlController",
+    "Method": "CreateReservation",
+    "RelativePath": "api/ssms/v0.1/baycontrol/reservation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.BayControl.CreateReservationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayControlController",
+    "Method": "DeleteReservation",
+    "RelativePath": "api/ssms/v0.1/baycontrol/reservation/{resKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayControlController",
+    "Method": "UpdateReservationStatus",
+    "RelativePath": "api/ssms/v0.1/baycontrol/reservation/{resKy}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayControlController",
+    "Method": "GetReservations",
+    "RelativePath": "api/ssms/v0.1/baycontrol/reservations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "date",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayControlController",
+    "Method": "GetAllBaysStatus",
+    "RelativePath": "api/ssms/v0.1/baycontrol/status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayControlController",
+    "Method": "UpdateBayControl",
+    "RelativePath": "api/ssms/v0.1/baycontrol/update-status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.BayControl.UpdateBayControlDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayWorkerController",
+    "Method": "GetAllWorkers",
+    "RelativePath": "api/ssms/v0.1/bayworker",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayWorkerController",
+    "Method": "AddWorker",
+    "RelativePath": "api/ssms/v0.1/bayworker",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.BayWorker.CreateBayWorkerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayWorkerController",
+    "Method": "UpdateWorker",
+    "RelativePath": "api/ssms/v0.1/bayworker",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.BayWorker.UpdateBayWorkerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.BayWorkerController",
+    "Method": "RemoveWorker",
+    "RelativePath": "api/ssms/v0.1/bayworker/{bayWorkerKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bayWorkerKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.CalendarController",
+    "Method": "GetUnavailableDates",
+    "RelativePath": "api/ssms/v0.1/calendar/unavailable-dates",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.CodesController",
+    "Method": "GetCodesByType",
+    "RelativePath": "api/ssms/v0.1/code",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Codes.GetCodesByTypeRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.CodesController",
+    "Method": "Create",
+    "RelativePath": "api/ssms/v0.1/code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Codes.CreateCodeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.CodesController",
+    "Method": "Update",
+    "RelativePath": "api/ssms/v0.1/code/{cdKy}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cdKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Codes.UpdateCodeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.CodesController",
+    "Method": "DeleteCode",
+    "RelativePath": "api/ssms/v0.1/code/{cdKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cdKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.CodesController",
+    "Method": "GetUserAccessibleControls",
+    "RelativePath": "api/ssms/v0.1/code/types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CustomerController",
+    "Method": "GetAll",
+    "RelativePath": "api/ssms/v0.1/Customer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CustomerController",
+    "Method": "AddCustomer",
+    "RelativePath": "api/ssms/v0.1/Customer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Customers.AddCustomerAddressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CustomerController",
+    "Method": "UpdateCustomer",
+    "RelativePath": "api/ssms/v0.1/Customer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Customers.UpdateCustomerAddressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.CustomerAccountController",
+    "Method": "GetAll",
+    "RelativePath": "api/ssms/v0.1/CustomerAccount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.InvoiceDetailsController",
+    "Method": "GetDetails",
+    "RelativePath": "api/ssms/v0.1/InvoiceDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ItemsController",
+    "Method": "GetAll",
+    "RelativePath": "api/ssms/v0.1/items",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ItemsController",
+    "Method": "AddItem",
+    "RelativePath": "api/ssms/v0.1/items",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Items.AddItemDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ItemsController",
+    "Method": "UpdateItem",
+    "RelativePath": "api/ssms/v0.1/items",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Items.UpdateItemDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ItemsController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/ssms/v0.1/items/{itemKey}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemKey",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ItemsController",
+    "Method": "GetAllActiveItems",
+    "RelativePath": "api/ssms/v0.1/items/active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ItemsController",
+    "Method": "AddItemBatch",
+    "RelativePath": "api/ssms/v0.1/items/batch",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.ItemBatch.AddItemBatchDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ItemsController",
+    "Method": "UpdateItemBatch",
+    "RelativePath": "api/ssms/v0.1/items/batch",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.ItemBatch.UpdateItemBatchDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ItemsController",
+    "Method": "GetItemBatches",
+    "RelativePath": "api/ssms/v0.1/items/batch/{itemKey}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemKey",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/ssms/v0.1/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Auth.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/ssms/v0.1/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.LookupsController",
+    "Method": "GetItemCategory1",
+    "RelativePath": "api/ssms/v0.1/lookups/itemCategory1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.LookupsController",
+    "Method": "GetItemCategory2",
+    "RelativePath": "api/ssms/v0.1/lookups/itemCategory2",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.LookupsController",
+    "Method": "GetItemCategory3",
+    "RelativePath": "api/ssms/v0.1/lookups/itemCategory3",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.LookupsController",
+    "Method": "GetItemCategory4",
+    "RelativePath": "api/ssms/v0.1/lookups/itemCategory4",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.LookupsController",
+    "Method": "GetLastTransactionNo",
+    "RelativePath": "api/ssms/v0.1/lookups/trnNoLast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Lookups.GetLastTrnNoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.OrderManagementController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/ssms/v0.1/order",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.OrderManagementController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/ssms/v0.1/order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Order.CreateOrderDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.OrderManagementController",
+    "Method": "GetOrderByKey",
+    "RelativePath": "api/ssms/v0.1/order/{ordKy}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.OrderManagementController",
+    "Method": "UpdateOrder",
+    "RelativePath": "api/ssms/v0.1/order/{ordKy}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Order.CreateOrderDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.OrderManagementController",
+    "Method": "DeleteOrder",
+    "RelativePath": "api/ssms/v0.1/order/{ordKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.OrderManagementController",
+    "Method": "GetOrderByOrderNo",
+    "RelativePath": "api/ssms/v0.1/order/orderno/{ordNo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordNo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.PackageController",
+    "Method": "GetPackages",
+    "RelativePath": "api/ssms/v0.1/package",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.PackageController",
+    "Method": "AddPackage",
+    "RelativePath": "api/ssms/v0.1/package",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Package.CreatePackageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.PackageController",
+    "Method": "UpdatePackage",
+    "RelativePath": "api/ssms/v0.1/package",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Package.CreatePackageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.PackageController",
+    "Method": "DeletePackage",
+    "RelativePath": "api/ssms/v0.1/package/{cdKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cdKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.PackageController",
+    "Method": "GetPackageDetails",
+    "RelativePath": "api/ssms/v0.1/package/{cdKy}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cdKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.PackageController",
+    "Method": "GetAllPackagesWithItems",
+    "RelativePath": "api/ssms/v0.1/package/with-items",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.PaymentTermController",
+    "Method": "GetAll",
+    "RelativePath": "api/ssms/v0.1/PaymentTerm",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/ssms/v0.1/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetAccountAddressDetails",
+    "RelativePath": "api/ssms/v0.1/Reports/AccountAddressRel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetAccountBalanceAsAt",
+    "RelativePath": "api/ssms/v0.1/Reports/AccountBalanceAsAt",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Account_Balance_As_At.AccBalanceAsAtRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetAccountLedger",
+    "RelativePath": "api/ssms/v0.1/Reports/AccountLedger",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Account_Ledger.AccLedgerReportRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetAccountTransactionDetails",
+    "RelativePath": "api/ssms/v0.1/Reports/AccountTransactionDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Account_Transaction_Details.AccTrnDetailsReportRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetAgeAnalysis",
+    "RelativePath": "api/ssms/v0.1/Reports/AgeAnalysis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Creditor_Age_Analysis.AgeAnalysisRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetChequeReturnDetails",
+    "RelativePath": "api/ssms/v0.1/Reports/ChequeReturnDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Return_Cheque_Details.ChqReturnReportRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetLssCreditInvoiceSummary",
+    "RelativePath": "api/ssms/v0.1/Reports/CreditSalesSummary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Credit_Sales_Summary.LssCreditInvoiceSummaryRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetAllAddressDetails",
+    "RelativePath": "api/ssms/v0.1/Reports/CustomerAddressDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetDebtorsDueStatement",
+    "RelativePath": "api/ssms/v0.1/Reports/DueStatement",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Creditors_Due_Statement.DebtorsDueStatementRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetGrossProfitItemLocation",
+    "RelativePath": "api/ssms/v0.1/Reports/GrossProfit",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Gross_Profit.GrossProfitItemLocationRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetItemBatchDetails",
+    "RelativePath": "api/ssms/v0.1/Reports/ItemBatchDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Item_Batch_Details.ItemBatchReportRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetItemCat1WiseTransactionSummary",
+    "RelativePath": "api/ssms/v0.1/Reports/ItemCat1WiseTransactionSummary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Item_Cat1_Wise_Transaction_Summary.ItmCat1WiseTrnSumRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetAllItemsVsf",
+    "RelativePath": "api/ssms/v0.1/Reports/ItemsVsf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetNonPerformedCustomers",
+    "RelativePath": "api/ssms/v0.1/Reports/NonPerformedCustomers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Non_Active_Customer_List.NonPerformedCustomerRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetNonPerformedItems",
+    "RelativePath": "api/ssms/v0.1/Reports/NonPerformedItems",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Non_Moving_Item_List.NonPerformedItemRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetReOrderItems",
+    "RelativePath": "api/ssms/v0.1/Reports/ReOrderItems",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_ReOrder_Details.ReOrderItemsRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetSalesByRep",
+    "RelativePath": "api/ssms/v0.1/Reports/SalesByRep",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Sales_Summary_By_Rep.ReportSalesByRepRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetSalesDetailsByPaymentMode",
+    "RelativePath": "api/ssms/v0.1/Reports/SalesDetailsByPaymentMode",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Sales_Details_by_Payment_Mode.SalesDetailsByPaymentModeRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetSalesItemReport",
+    "RelativePath": "api/ssms/v0.1/Reports/SalesItemReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Sales_Details_By_Item.SalesItemReportRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetSalesRepWiseCustomer",
+    "RelativePath": "api/ssms/v0.1/Reports/SalesRepWiseCustomer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Sales_Details.SalesRepWiseCustomerRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetSetOffDetails",
+    "RelativePath": "api/ssms/v0.1/Reports/SetOffDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_SetOff_Details_Report.SetOffDetailsReportRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetStockAsAt",
+    "RelativePath": "api/ssms/v0.1/Reports/StockAsAt",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Stock_As_At.StockAsAtRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetStockLedger",
+    "RelativePath": "api/ssms/v0.1/Reports/StockLedger",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Stock_Ledger.StockLedgerRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "POS.API.Controllers.ReportsController",
+    "Method": "GetTransactionDetailsReport",
+    "RelativePath": "api/ssms/v0.1/Reports/TransactionDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Application.DTOs.Reports.Report_Sales_Summary_By_Rep.TrnDetReportRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ReservationController",
+    "Method": "CreateReservation",
+    "RelativePath": "api/ssms/v0.1/reservation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Reservation.CreateFullReservationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ReservationController",
+    "Method": "GetAllReservations",
+    "RelativePath": "api/ssms/v0.1/reservation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ReservationController",
+    "Method": "UpdateReservation",
+    "RelativePath": "api/ssms/v0.1/reservation/{resKy}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Reservation.CreateFullReservationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ReservationController",
+    "Method": "DeleteReservation",
+    "RelativePath": "api/ssms/v0.1/reservation/{resKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ReservationController",
+    "Method": "ApproveReservation",
+    "RelativePath": "api/ssms/v0.1/reservation/{resKy}/approval",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "approve",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ReservationController",
+    "Method": "GetReservationsByDate",
+    "RelativePath": "api/ssms/v0.1/reservation/date/{date}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ReservationController",
+    "Method": "GetReservationsByVehicle",
+    "RelativePath": "api/ssms/v0.1/reservation/vehicle/{vehicleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vehicleId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.SalesAccountController",
+    "Method": "GetAll",
+    "RelativePath": "api/ssms/v0.1/SalesAccount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ServiceOrderController",
+    "Method": "CreateServiceOrder",
+    "RelativePath": "api/ssms/v0.1/serviceorder",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.ServiceOrder.CreateServiceOrderDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ServiceOrderController",
+    "Method": "GetServiceOrders",
+    "RelativePath": "api/ssms/v0.1/serviceorder",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ServiceOrderController",
+    "Method": "GetServiceOrderDetails",
+    "RelativePath": "api/ssms/v0.1/serviceorder/{ordKy}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ServiceOrderController",
+    "Method": "AddServiceItem",
+    "RelativePath": "api/ssms/v0.1/serviceorder/item",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.ServiceOrder.AddServiceItemDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ServiceOrderController",
+    "Method": "ApproveServiceItem",
+    "RelativePath": "api/ssms/v0.1/serviceorder/item/approval",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.ServiceOrder.ApproveServiceItemDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ServiceOrderController",
+    "Method": "UpdateItemStatus",
+    "RelativePath": "api/ssms/v0.1/serviceorder/item/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.ServiceOrder.UpdateItemStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.StockController",
+    "Method": "CreateStockAddition",
+    "RelativePath": "api/ssms/v0.1/Stock/addition",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Stock_Addition.StockAddPostDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.StockController",
+    "Method": "UpdateStockAddition",
+    "RelativePath": "api/ssms/v0.1/Stock/addition",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Stock_Addition.StockAddUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.StockController",
+    "Method": "GetStockAddition",
+    "RelativePath": "api/ssms/v0.1/Stock/addition/{trnNo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trnNo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.StockController",
+    "Method": "DeleteStockAddition",
+    "RelativePath": "api/ssms/v0.1/Stock/addition/{trnNo}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trnNo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.StockController",
+    "Method": "CreateStockDeduction",
+    "RelativePath": "api/ssms/v0.1/Stock/deduction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.StockDeduction.StockDeductionPostDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.StockController",
+    "Method": "UpdateStockDeduction",
+    "RelativePath": "api/ssms/v0.1/Stock/deduction",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.StockDeduction.StockDeductionUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.StockController",
+    "Method": "GetStockDeduction",
+    "RelativePath": "api/ssms/v0.1/Stock/deduction/{trnNo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trnNo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.StockController",
+    "Method": "DeleteStockDeduction",
+    "RelativePath": "api/ssms/v0.1/Stock/deduction/{trnNo}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trnNo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.UserController",
+    "Method": "GetActiveUsers",
+    "RelativePath": "api/ssms/v0.1/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/ssms/v0.1/users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.User.CreateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/ssms/v0.1/users/{usrKy}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usrKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.User.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/ssms/v0.1/users/{usrKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usrKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleController",
+    "Method": "RegisterVehicle",
+    "RelativePath": "api/ssms/v0.1/vehicle",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Vehicle.CreateVehicleRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleController",
+    "Method": "UpdateVehicle",
+    "RelativePath": "api/ssms/v0.1/vehicle",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.Vehicle.CreateVehicleRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleController",
+    "Method": "GetActiveVehicles",
+    "RelativePath": "api/ssms/v0.1/vehicle",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleController",
+    "Method": "DeleteVehicle",
+    "RelativePath": "api/ssms/v0.1/vehicle/{vehicleKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vehicleKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleController",
+    "Method": "GetVehicleDetails",
+    "RelativePath": "api/ssms/v0.1/vehicle/{vehicleKy}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vehicleKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleController",
+    "Method": "GetAllVehiclesDetailed",
+    "RelativePath": "api/ssms/v0.1/vehicle/details",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleTypeController",
+    "Method": "GetVehicleTypes",
+    "RelativePath": "api/ssms/v0.1/vehicletype",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleTypeController",
+    "Method": "AddVehicleType",
+    "RelativePath": "api/ssms/v0.1/vehicletype",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.VehicleType.CreateVehicleTypeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleTypeController",
+    "Method": "UpdateVehicleType",
+    "RelativePath": "api/ssms/v0.1/vehicletype",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.VehicleType.CreateVehicleTypeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.VehicleTypeController",
+    "Method": "DeleteVehicleType",
+    "RelativePath": "api/ssms/v0.1/vehicletype/{cdKy}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cdKy",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,4944 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ServiceStationApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/ssms/v0.1/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/accessLevel": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/bay": {
+      "get": {
+        "tags": [
+          "Bay"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Bay"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBayDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBayDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBayDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Bay"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/bay/{bayKy}": {
+      "delete": {
+        "tags": [
+          "Bay"
+        ],
+        "parameters": [
+          {
+            "name": "bayKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/baycontrol/available": {
+      "get": {
+        "tags": [
+          "BayControl"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/baycontrol/status": {
+      "get": {
+        "tags": [
+          "BayControl"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/baycontrol/reservable": {
+      "get": {
+        "tags": [
+          "BayControl"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/baycontrol/reservation": {
+      "post": {
+        "tags": [
+          "BayControl"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReservationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReservationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateReservationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/baycontrol/reservation/{resKy}/status": {
+      "put": {
+        "tags": [
+          "BayControl"
+        ],
+        "parameters": [
+          {
+            "name": "resKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/baycontrol/reservation/{resKy}": {
+      "delete": {
+        "tags": [
+          "BayControl"
+        ],
+        "parameters": [
+          {
+            "name": "resKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/baycontrol/update-status": {
+      "put": {
+        "tags": [
+          "BayControl"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayControlDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayControlDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayControlDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/baycontrol/reservations": {
+      "get": {
+        "tags": [
+          "BayControl"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/bayworker": {
+      "get": {
+        "tags": [
+          "BayWorker"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BayWorker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBayWorkerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBayWorkerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBayWorkerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BayWorker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayWorkerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayWorkerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBayWorkerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/bayworker/{bayWorkerKy}": {
+      "delete": {
+        "tags": [
+          "BayWorker"
+        ],
+        "parameters": [
+          {
+            "name": "bayWorkerKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/calendar/unavailable-dates": {
+      "get": {
+        "tags": [
+          "Calendar"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/code/types": {
+      "get": {
+        "tags": [
+          "Codes"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/code": {
+      "get": {
+        "tags": [
+          "Codes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCodesByTypeRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCodesByTypeRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCodesByTypeRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Codes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCodeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCodeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCodeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/code/{cdKy}": {
+      "put": {
+        "tags": [
+          "Codes"
+        ],
+        "parameters": [
+          {
+            "name": "cdKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCodeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCodeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCodeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Codes"
+        ],
+        "parameters": [
+          {
+            "name": "cdKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Customer": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCustomerAddressDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCustomerAddressDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCustomerAddressDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerAddressDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerAddressDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerAddressDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/CustomerAccount": {
+      "get": {
+        "tags": [
+          "CustomerAccount"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/InvoiceDetails": {
+      "get": {
+        "tags": [
+          "InvoiceDetails"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/items": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddItemDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddItemDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddItemDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Items"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/items/active": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/items/{itemKey}": {
+      "delete": {
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "itemKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/items/batch/{itemKey}": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "itemKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/items/batch": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddItemBatchDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddItemBatchDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddItemBatchDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Items"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemBatchDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemBatchDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemBatchDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/lookups/itemCategory1": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/lookups/itemCategory2": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/lookups/itemCategory3": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/lookups/itemCategory4": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/lookups/trnNoLast": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetLastTrnNoRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetLastTrnNoRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetLastTrnNoRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/order": {
+      "get": {
+        "tags": [
+          "OrderManagement"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "OrderManagement"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/order/orderno/{ordNo}": {
+      "get": {
+        "tags": [
+          "OrderManagement"
+        ],
+        "parameters": [
+          {
+            "name": "ordNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/order/{ordKy}": {
+      "get": {
+        "tags": [
+          "OrderManagement"
+        ],
+        "parameters": [
+          {
+            "name": "ordKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "OrderManagement"
+        ],
+        "parameters": [
+          {
+            "name": "ordKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "OrderManagement"
+        ],
+        "parameters": [
+          {
+            "name": "ordKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/package": {
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Package"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackageDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackageDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Package"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackageDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackageDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/package/{cdKy}": {
+      "delete": {
+        "tags": [
+          "Package"
+        ],
+        "parameters": [
+          {
+            "name": "cdKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "parameters": [
+          {
+            "name": "cdKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/package/with-items": {
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/PaymentTerm": {
+      "get": {
+        "tags": [
+          "PaymentTerm"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/SalesByRep": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportSalesByRepRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportSalesByRepRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportSalesByRepRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/SalesDetailsByPaymentMode": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesDetailsByPaymentModeRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesDetailsByPaymentModeRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesDetailsByPaymentModeRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/TransactionDetails": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TrnDetReportRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TrnDetReportRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TrnDetReportRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/SalesRepWiseCustomer": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesRepWiseCustomerRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesRepWiseCustomerRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesRepWiseCustomerRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/SalesItemReport": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesItemReportRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesItemReportRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SalesItemReportRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/NonPerformedItems": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonPerformedItemRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonPerformedItemRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonPerformedItemRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/NonPerformedCustomers": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonPerformedCustomerRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonPerformedCustomerRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonPerformedCustomerRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/ChequeReturnDetails": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChqReturnReportRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChqReturnReportRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChqReturnReportRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/AccountLedger": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccLedgerReportRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccLedgerReportRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccLedgerReportRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/AccountTransactionDetails": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccTrnDetailsReportRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccTrnDetailsReportRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccTrnDetailsReportRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/AccountBalanceAsAt": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccBalanceAsAtRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccBalanceAsAtRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccBalanceAsAtRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/ItemCat1WiseTransactionSummary": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItmCat1WiseTrnSumRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItmCat1WiseTrnSumRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItmCat1WiseTrnSumRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/SetOffDetails": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetOffDetailsReportRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetOffDetailsReportRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetOffDetailsReportRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/GrossProfit": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrossProfitItemLocationRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrossProfitItemLocationRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrossProfitItemLocationRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/CreditSalesSummary": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LssCreditInvoiceSummaryRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LssCreditInvoiceSummaryRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LssCreditInvoiceSummaryRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/AgeAnalysis": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgeAnalysisRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgeAnalysisRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgeAnalysisRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/DueStatement": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DebtorsDueStatementRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DebtorsDueStatementRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DebtorsDueStatementRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/StockLedger": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockLedgerRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockLedgerRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockLedgerRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/StockAsAt": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAsAtRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAsAtRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAsAtRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/ItemBatchDetails": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItemBatchReportRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItemBatchReportRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItemBatchReportRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/ReOrderItems": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReOrderItemsRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReOrderItemsRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReOrderItemsRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/CustomerAddressDetails": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/AccountAddressRel": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Reports/ItemsVsf": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/reservation": {
+      "post": {
+        "tags": [
+          "Reservation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFullReservationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFullReservationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFullReservationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/reservation/{resKy}": {
+      "put": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "name": "resKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFullReservationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFullReservationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFullReservationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "name": "resKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/reservation/vehicle/{vehicleId}": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "name": "vehicleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/reservation/date/{date}": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/reservation/{resKy}/approval": {
+      "put": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "name": "resKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "approve",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/SalesAccount": {
+      "get": {
+        "tags": [
+          "SalesAccount"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/serviceorder": {
+      "post": {
+        "tags": [
+          "ServiceOrder"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceOrderDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceOrderDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceOrderDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ServiceOrder"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/serviceorder/item": {
+      "post": {
+        "tags": [
+          "ServiceOrder"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddServiceItemDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddServiceItemDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddServiceItemDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/serviceorder/item/approval": {
+      "put": {
+        "tags": [
+          "ServiceOrder"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveServiceItemDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveServiceItemDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveServiceItemDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/serviceorder/item/status": {
+      "put": {
+        "tags": [
+          "ServiceOrder"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemStatusDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemStatusDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateItemStatusDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/serviceorder/{ordKy}": {
+      "get": {
+        "tags": [
+          "ServiceOrder"
+        ],
+        "parameters": [
+          {
+            "name": "ordKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Stock/addition/{trnNo}": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "parameters": [
+          {
+            "name": "trnNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Stock"
+        ],
+        "parameters": [
+          {
+            "name": "trnNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Stock/addition": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAddPostDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAddPostDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAddPostDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Stock"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAddUpdateDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAddUpdateDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockAddUpdateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Stock/deduction/{trnNo}": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "parameters": [
+          {
+            "name": "trnNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Stock"
+        ],
+        "parameters": [
+          {
+            "name": "trnNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/Stock/deduction": {
+      "post": {
+        "tags": [
+          "Stock"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockDeductionPostDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockDeductionPostDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockDeductionPostDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Stock"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockDeductionUpdateDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockDeductionUpdateDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StockDeductionUpdateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/users/{usrKy}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "usrKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "usrKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/vehicle": {
+      "post": {
+        "tags": [
+          "Vehicle"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Vehicle"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/vehicle/{vehicleKy}": {
+      "delete": {
+        "tags": [
+          "Vehicle"
+        ],
+        "parameters": [
+          {
+            "name": "vehicleKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "parameters": [
+          {
+            "name": "vehicleKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/vehicle/details": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/vehicletype": {
+      "get": {
+        "tags": [
+          "VehicleType"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "VehicleType"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleTypeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleTypeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleTypeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "VehicleType"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleTypeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleTypeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleTypeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ssms/v0.1/vehicletype/{cdKy}": {
+      "delete": {
+        "tags": [
+          "VehicleType"
+        ],
+        "parameters": [
+          {
+            "name": "cdKy",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccBalanceAsAtRequestDto": {
+        "type": "object",
+        "properties": {
+          "asAtDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "accTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccLedgerReportRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "accTypKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "multiCurrency": {
+            "type": "boolean"
+          },
+          "landScope": {
+            "type": "boolean"
+          },
+          "orderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageBreak": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccTrnDetailsReportRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "fromTrnNo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "toTrnNo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fromDocNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDocNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromYurRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "toYurRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "accTypKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trnTypKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isContra": {
+            "type": "boolean"
+          },
+          "isSummary": {
+            "type": "boolean"
+          },
+          "isLandscape": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddCustomerAddressDto": {
+        "type": "object",
+        "properties": {
+          "adrNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "fstNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "midNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "lstNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "tP1": {
+            "type": "string",
+            "nullable": true
+          },
+          "tP2": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMail": {
+            "type": "string",
+            "nullable": true
+          },
+          "ourCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "gpsLoc": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddItemBatchDTO": {
+        "required": [
+          "itemKey"
+        ],
+        "type": "object",
+        "properties": {
+          "itemKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "batchNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "expirDt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "costPrice": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "salePrice": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddItemDTO": {
+        "required": [
+          "costPrice",
+          "itemCode",
+          "itemName",
+          "itemType",
+          "salesPrice",
+          "unitKey"
+        ],
+        "type": "object",
+        "properties": {
+          "itemCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemType": {
+            "type": "string",
+            "nullable": true
+          },
+          "partNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "nullable": true
+          },
+          "itmCat1Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat2Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat3Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat4Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "unitKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discountPrecentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "costPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "salesPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "discountAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddServiceItemDto": {
+        "type": "object",
+        "properties": {
+          "serviceOrdKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "itemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "estimatedTime": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgeAnalysisRequestDto": {
+        "type": "object",
+        "properties": {
+          "reportMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "asAtDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "overDueOnly": {
+            "type": "boolean"
+          },
+          "day1": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "day2": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "day3": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "day4": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "slsRepAdrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "adrTyp2Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "buCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApproveServiceItemDto": {
+        "type": "object",
+        "properties": {
+          "serviceOrdDetKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isApproved": {
+            "type": "boolean"
+          },
+          "custName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "device": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangePasswordDto": {
+        "type": "object",
+        "properties": {
+          "usrKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oldPwd": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPwd": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmPwd": {
+            "type": "string",
+            "nullable": true
+          },
+          "pwdTip": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChqReturnReportRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateBayDto": {
+        "required": [
+          "bayCd",
+          "bayNm"
+        ],
+        "type": "object",
+        "properties": {
+          "bayCd": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "bayNm": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string"
+          },
+          "isReservationAvailable": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateBayWorkerDto": {
+        "type": "object",
+        "properties": {
+          "bayKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usrKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCodeDto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "cdNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "conCd": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateFullReservationDto": {
+        "required": [
+          "bayKy",
+          "bookingFrom",
+          "bookingTo",
+          "packageKy"
+        ],
+        "type": "object",
+        "properties": {
+          "vehicleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "newVehicleDetails": {
+            "$ref": "#/components/schemas/CreateVehicleRequestDto"
+          },
+          "packageKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bayKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bookingFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "bookingTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateOrderDetailDto": {
+        "type": "object",
+        "properties": {
+          "adrKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "liNo": {
+            "type": "number",
+            "format": "double"
+          },
+          "itmKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "des": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "estQty": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ordQty": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dlvQty": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bulkQty": {
+            "type": "number",
+            "format": "double"
+          },
+          "estPri": {
+            "type": "number",
+            "format": "double"
+          },
+          "ordPri": {
+            "type": "number",
+            "format": "double"
+          },
+          "cosPri": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "slsPri": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "disPer": {
+            "type": "number",
+            "format": "float"
+          },
+          "disAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "fApr": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fVirtItm": {
+            "type": "boolean"
+          },
+          "ordItmCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "ordStsKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ordUnitKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bulkFctr": {
+            "type": "number",
+            "format": "double"
+          },
+          "reqDt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "bulkUnitKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "stkStsKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "grsWt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "netWt": {
+            "type": "number",
+            "format": "double"
+          },
+          "buKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cdKy1": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amt1": {
+            "type": "number",
+            "format": "double"
+          },
+          "amt2": {
+            "type": "number",
+            "format": "double"
+          },
+          "fNoPrnPri": {
+            "type": "boolean"
+          },
+          "fmtFntSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fmtFntUndLn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fmtFntStyle": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cd2Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cd3Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fmtPrtPri": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "rem": {
+            "type": "string",
+            "nullable": true
+          },
+          "specCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "isMatSub": {
+            "type": "boolean"
+          },
+          "isLabSub": {
+            "type": "boolean"
+          },
+          "isPltSub": {
+            "type": "boolean"
+          },
+          "matAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "labAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "pltAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "subConAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "subOHP": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateOrderDto": {
+        "type": "object",
+        "properties": {
+          "locKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ordTyp": {
+            "type": "string",
+            "nullable": true
+          },
+          "ordTypKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "adrky": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pmtTrmKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "slsPri": {
+            "type": "number",
+            "format": "double"
+          },
+          "disPer": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "des": {
+            "type": "string",
+            "nullable": true
+          },
+          "docNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "yurRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "ordDt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dlryDt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ordFrqKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ordStsKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repAdrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "distAdrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "buKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ordCat1Ky": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ordCat2Ky": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ordCat3Ky": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amt1": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amt2": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "marPer": {
+            "type": "number",
+            "format": "float"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "sKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ordRem": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateOrderDetailDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePackageDto": {
+        "required": [
+          "cdNm",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "cdKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "code": {
+            "maxLength": 15,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cdNm": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateReservationDto": {
+        "type": "object",
+        "properties": {
+          "vehicleKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "bayKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fromDtm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "toDtm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "resType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateServiceOrderDto": {
+        "type": "object",
+        "properties": {
+          "customerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "vehicleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentMileage": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "damageNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "packageKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bayKy": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "usrNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "usrId": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPwd": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmPwd": {
+            "type": "string",
+            "nullable": true
+          },
+          "pwdTip": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateVehicleRequestDto": {
+        "required": [
+          "owner",
+          "vehicleId"
+        ],
+        "type": "object",
+        "properties": {
+          "vehicleKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "vehicleId": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "vehicleTypKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fuelTyp": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentMileage": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "fuelLevel": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "make": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "chassisNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "engineNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "owner": {
+            "$ref": "#/components/schemas/OwnerDto"
+          },
+          "drivers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DriverDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateVehicleTypeDto": {
+        "required": [
+          "cdNm",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "cdKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "code": {
+            "maxLength": 15,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cdNm": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DebtorsDueStatementRequestDto": {
+        "type": "object",
+        "properties": {
+          "asAtDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isOverdue": {
+            "type": "boolean"
+          },
+          "trnTypCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "formTag": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DriverDto": {
+        "type": "object",
+        "properties": {
+          "driverKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "driverName": {
+            "maxLength": 60,
+            "type": "string",
+            "nullable": true
+          },
+          "nic": {
+            "maxLength": 20,
+            "type": "string",
+            "nullable": true
+          },
+          "tp": {
+            "maxLength": 30,
+            "type": "string",
+            "nullable": true
+          },
+          "licenseNo": {
+            "maxLength": 30,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCodesByTypeRequestDto": {
+        "type": "object",
+        "properties": {
+          "conCd": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetLastTrnNoRequestDto": {
+        "type": "object",
+        "properties": {
+          "ourCd": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrossProfitItemLocationRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "itmKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "locKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "buKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "repAdrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmTypKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat1Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat2Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat3Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat4Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "adrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "groupBy1": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupBy2": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItemBatchReportRequestDto": {
+        "type": "object",
+        "properties": {
+          "itmKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItmCat1WiseTrnSumRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "locKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "itmTypKy": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequestDto": {
+        "required": [
+          "companyKey",
+          "password",
+          "projectKey",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projectKey": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LssCreditInvoiceSummaryRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "adrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NonPerformedCustomerRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NonPerformedItemRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "itmCat1Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat2Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OwnerDto": {
+        "required": [
+          "fstNm"
+        ],
+        "type": "object",
+        "properties": {
+          "adrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fstNm": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string"
+          },
+          "lstNm": {
+            "maxLength": 60,
+            "type": "string",
+            "nullable": true
+          },
+          "tP1": {
+            "maxLength": 30,
+            "type": "string",
+            "nullable": true
+          },
+          "nic": {
+            "maxLength": 30,
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "maxLength": 120,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReOrderItemsRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "itmKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat1Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat2Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat3Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "adrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportSalesByRepRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "repName": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "salesReturn": {
+            "type": "boolean"
+          },
+          "viewType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SalesDetailsByPaymentModeRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "paymentModeName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SalesItemReportRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "salesOnly": {
+            "type": "boolean"
+          },
+          "summary": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SalesRepWiseCustomerRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "repAdrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "onlySales": {
+            "type": "boolean"
+          },
+          "isSummary": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SetOffDetailsReportRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "accKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "varName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockAddDetailInput": {
+        "type": "object",
+        "properties": {
+          "itemKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "number",
+            "format": "double"
+          },
+          "costPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "salePrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "unitKey": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockAddPostDTO": {
+        "type": "object",
+        "properties": {
+          "trnNo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trnDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "locKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StockAddDetailInput"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockAddUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "trnNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trnDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "locKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StockAddDetailInput"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockAsAtRequestDto": {
+        "type": "object",
+        "properties": {
+          "locKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "buKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmTypKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat1Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat2Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat3Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat4Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isCurrentStockQty": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockDeductionItemDTO": {
+        "type": "object",
+        "properties": {
+          "itemKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "number",
+            "format": "double"
+          },
+          "costPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "salePrice": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockDeductionPostDTO": {
+        "type": "object",
+        "properties": {
+          "trnDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "locKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StockDeductionItemDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockDeductionUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "trnNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trnDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "locKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StockDeductionItemDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockLedgerRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "itmKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "itmTypKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "locKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageBreak": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TrnDetReportRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "trnTyp": {
+            "type": "string",
+            "nullable": true
+          },
+          "adrNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "itmNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeItemsOnly": {
+            "type": "boolean"
+          },
+          "repAdrKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "showDetails": {
+            "type": "boolean"
+          },
+          "summary": {
+            "type": "boolean"
+          },
+          "orderBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateBayControlDto": {
+        "type": "object",
+        "properties": {
+          "bayKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isOccupied": {
+            "type": "boolean"
+          },
+          "vehicleKy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "currentActivity": {
+            "type": "string",
+            "nullable": true
+          },
+          "estimatedFinishDtm": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateBayDto": {
+        "required": [
+          "bayCd",
+          "bayKy",
+          "bayNm"
+        ],
+        "type": "object",
+        "properties": {
+          "bayKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bayCd": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "bayNm": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string"
+          },
+          "isReservationAvailable": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateBayWorkerDto": {
+        "type": "object",
+        "properties": {
+          "bayWorkerKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bayKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usrKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCodeDto": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "cdNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "fInAct": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCustomerAddressDto": {
+        "type": "object",
+        "properties": {
+          "adrKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "adrNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "fstNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "midNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "lstNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "tP1": {
+            "type": "string",
+            "nullable": true
+          },
+          "tP2": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMail": {
+            "type": "string",
+            "nullable": true
+          },
+          "gpsLoc": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateItemBatchDTO": {
+        "required": [
+          "itemBatchKey",
+          "itemKey"
+        ],
+        "type": "object",
+        "properties": {
+          "itemBatchKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "itemKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "batchNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "expirDt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "costPrice": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "salePrice": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateItemDTO": {
+        "type": "object",
+        "properties": {
+          "itemKey": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "itemCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemType": {
+            "type": "string",
+            "nullable": true
+          },
+          "partNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "nullable": true
+          },
+          "itmCat1Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat2Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat3Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "itmCat4Ky": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "unitKey": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "discountPrecentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "costPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "salesPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "discountAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fInAct": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateItemStatusDto": {
+        "type": "object",
+        "properties": {
+          "serviceOrdDetKy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
