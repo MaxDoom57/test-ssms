@@ -8,15 +8,31 @@ chmod +x ./cloudflared
 API_URL="https://tunnel-fetch-api.onrender.com/api/Tunnels"
 API_KEY="HAT@123"
 
-declare -A RUNNING
+declare -A RUNNING_PID
+declare -A RUNNING_KEY
 
 start_tunnel() {
 
+HOST=$1
+PORT=$2
+ID=$3
+SECRET=$4
+
 ./cloudflared access tcp \
---hostname "$1" \
---url "localhost:$2" \
---service-token-id "$3" \
---service-token-secret "$4" &
+--hostname "$HOST" \
+--url "localhost:$PORT" \
+--service-token-id "$ID" \
+--service-token-secret "$SECRET" &
+
+PID=$!
+
+BASE="$HOST:$PORT"
+FULL="$HOST:$PORT:$ID:$SECRET"
+
+RUNNING_PID[$BASE]=$PID
+RUNNING_KEY[$BASE]=$FULL
+
+echo "Tunnel started $BASE (PID $PID)"
 }
 
 tunnel_manager() {
@@ -26,21 +42,32 @@ do
 
 echo "=== Fetching tunnels ==="
 
-curl -s -H "X-Api-Key: $API_KEY" $API_URL | jq -c '.[]' | while read tunnel
+curl -s -H "X-Api-Key: $API_KEY" "$API_URL" | jq -c '.[]' | while read tunnel
 do
   HOST=$(echo $tunnel | jq -r '.cfHostname')
   PORT=$(echo $tunnel | jq -r '.port')
   ID=$(echo $tunnel | jq -r '.cfClientId')
   SECRET=$(echo $tunnel | jq -r '.cfClientSecret')
 
-  KEY="$HOST:$PORT"
+  BASE="$HOST:$PORT"
+  FULL="$HOST:$PORT:$ID:$SECRET"
 
-  if [[ -z "${RUNNING[$KEY]}" ]]; then
-      echo "Starting tunnel $HOST"
+  if [[ -z "${RUNNING_KEY[$BASE]}" ]]; then
+
+      echo "Starting new tunnel $BASE"
+      start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
+
+  elif [[ "${RUNNING_KEY[$BASE]}" != "$FULL" ]]; then
+
+      echo "Tunnel config changed for $BASE"
+
+      OLD_PID=${RUNNING_PID[$BASE]}
+      echo "Stopping old tunnel PID $OLD_PID"
+
+      kill $OLD_PID || true
 
       start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
 
-      RUNNING[$KEY]=1
   fi
 
 done
