@@ -1,0 +1,57 @@
+services:
+
+  # ── HashiCorp Vault (Private Service) ──────────────────────────────
+  - type: pserv
+    name: tunnel-vault
+    runtime: docker
+    image:
+      url: hashicorp/vault:1.17
+    envVars:
+      - key: VAULT_DEV_ROOT_TOKEN_ID
+        sync: false
+      - key: PORT
+        value: 8200
+    disk:
+      name: vault-data
+      mountPath: /vault/data
+      sizeGB: 1
+
+  # ── Config API (Private Service) ───────────────────────────────────
+  - type: pserv
+    name: tunnel-config-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile.configapi
+    dockerContext: .
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: VAULT_ADDR
+        fromService:
+          name: tunnel-vault
+          type: pserv
+          property: hostport
+      - key: VAULT_TOKEN
+        sync: false
+      - key: INTERNAL_CONFIG_API_KEY
+        generateValue: true
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:10000
+    healthCheckPath: /health
+
+  # ── Tunnel Manager Worker ──────────────────────────────────────────
+  - type: worker
+    name: tunnel-manager-worker
+    runtime: docker
+    dockerfilePath: ./Dockerfile.worker
+    dockerContext: .
+    envVars:
+      - key: CONFIG_API_URL
+        fromService:
+          name: tunnel-config-api
+          type: pserv
+          property: hostport
+      - key: INTERNAL_CONFIG_API_KEY
+        fromService:
+          name: tunnel-config-api
+          type: pserv
+          envVarKey: INTERNAL_CONFIG_API_KEY

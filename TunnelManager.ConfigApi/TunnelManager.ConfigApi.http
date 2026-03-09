@@ -1,0 +1,6 @@
+@TunnelManager.ConfigApi_HostAddress = http://localhost:5198
+
+GET {{TunnelManager.ConfigApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

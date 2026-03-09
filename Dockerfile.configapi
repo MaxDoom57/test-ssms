@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 10000
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["TunnelManager.ConfigApi/TunnelManager.ConfigApi.csproj", "TunnelManager.ConfigApi/"]
+COPY ["TunnelManager.Shared/TunnelManager.Shared.csproj", "TunnelManager.Shared/"]
+RUN dotnet restore "TunnelManager.ConfigApi/TunnelManager.ConfigApi.csproj"
+COPY . .
+WORKDIR "/src/TunnelManager.ConfigApi"
+RUN dotnet publish -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "TunnelManager.ConfigApi.dll"]
