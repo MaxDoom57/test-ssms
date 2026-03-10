@@ -18,6 +18,8 @@ PORT=$2
 ID=$3
 SECRET=$4
 
+echo "Starting tunnel for $HOST:$PORT"
+
 ./cloudflared access tcp \
 --hostname "$HOST" \
 --url "localhost:$PORT" \
@@ -42,48 +44,54 @@ do
 
 echo "=== Fetching tunnels ==="
 
-RESPONSE=$(curl -s -H "X-Api-Key: $API_KEY" "$API_URL")
+RESPONSE=$(curl -s --max-time 15 \
+-H "X-Api-Key: $API_KEY" \
+-H "Accept: application/json" \
+"$API_URL")
 
 # Validate JSON response
-echo "$RESPONSE" | jq -e . >/dev/null 2>&1 || {
-  echo "Invalid API response"
+if ! echo "$RESPONSE" | jq -e . >/dev/null 2>&1; then
+  echo "Tunnel API returned invalid response:"
+  echo "$RESPONSE"
   sleep 30
   continue
-}
+fi
 
-# Process only valid tunnel rows
+# Filter valid tunnel rows only
 echo "$RESPONSE" | jq -c '.[] 
-| select(.cfHostname != null and .cfHostname != "" 
-and .cfClientId != null and .cfClientId != "" 
-and .cfClientSecret != null and .cfClientSecret != "" 
-and .port != null)' | while read tunnel
+| select(
+  .cfHostname != null and .cfHostname != "" and
+  .cfClientId != null and .cfClientId != "" and
+  .cfClientSecret != null and .cfClientSecret != "" and
+  .port != null
+)' | while read tunnel
 do
 
-  HOST=$(echo $tunnel | jq -r '.cfHostname')
-  PORT=$(echo $tunnel | jq -r '.port')
-  ID=$(echo $tunnel | jq -r '.cfClientId')
-  SECRET=$(echo $tunnel | jq -r '.cfClientSecret')
+HOST=$(echo "$tunnel" | jq -r '.cfHostname')
+PORT=$(echo "$tunnel" | jq -r '.port')
+ID=$(echo "$tunnel" | jq -r '.cfClientId')
+SECRET=$(echo "$tunnel" | jq -r '.cfClientSecret')
 
-  BASE="$HOST:$PORT"
-  FULL="$HOST:$PORT:$ID:$SECRET"
+BASE="$HOST:$PORT"
+FULL="$HOST:$PORT:$ID:$SECRET"
 
-  if [[ -z "${RUNNING_KEY[$BASE]}" ]]; then
+if [[ -z "${RUNNING_KEY[$BASE]}" ]]; then
 
-      echo "Starting new tunnel $BASE"
-      start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
+    echo "Starting new tunnel $BASE"
+    start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
 
-  elif [[ "${RUNNING_KEY[$BASE]}" != "$FULL" ]]; then
+elif [[ "${RUNNING_KEY[$BASE]}" != "$FULL" ]]; then
 
-      echo "Tunnel config changed for $BASE"
+    echo "Tunnel config changed for $BASE"
 
-      OLD_PID=${RUNNING_PID[$BASE]}
-      echo "Stopping old tunnel PID $OLD_PID"
+    OLD_PID=${RUNNING_PID[$BASE]}
+    echo "Stopping old tunnel PID $OLD_PID"
 
-      kill $OLD_PID 2>/dev/null || true
+    kill $OLD_PID 2>/dev/null || true
 
-      start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
+    start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
 
-  fi
+fi
 
 done
 
