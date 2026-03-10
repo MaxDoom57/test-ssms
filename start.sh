@@ -7,11 +7,18 @@ chmod +x ./cloudflared
 
 API_URL="https://tunnel-fetch.onrender.com/api/Tunnels"
 API_KEY="HAT@123"
+API_BASE="https://tunnel-fetch.onrender.com"
 
 declare -A RUNNING_PID
 declare -A RUNNING_KEY
 declare -A FAIL_COUNT
 declare -A COOLDOWN_UNTIL
+
+wake_api() {
+echo "Waking Tunnel API..."
+curl -s --max-time 10 "$API_BASE" > /dev/null || true
+sleep 3
+}
 
 start_tunnel() {
 
@@ -80,6 +87,8 @@ while true
 do
 
 echo "=== Fetching tunnels ==="
+
+wake_api
 
 RESPONSE=$(curl -s --max-time 15 \
 -H "X-Api-Key: $API_KEY" \
