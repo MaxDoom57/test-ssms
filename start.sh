@@ -25,7 +25,6 @@ FULL="$HOST:$PORT:$ID:$SECRET"
 
 NOW=$(date +%s)
 
-# cooldown check
 if [[ -n "${COOLDOWN_UNTIL[$BASE]}" && ${COOLDOWN_UNTIL[$BASE]} -gt $NOW ]]; then
   echo "Tunnel $BASE in cooldown until ${COOLDOWN_UNTIL[$BASE]}"
   return
@@ -34,6 +33,7 @@ fi
 echo "Starting tunnel for $BASE"
 
 ./cloudflared access tcp \
+--loglevel error \
 --hostname "$HOST" \
 --url "localhost:$PORT" \
 --service-token-id "$ID" \
@@ -59,6 +59,21 @@ else
 fi
 }
 
+cleanup_removed_tunnels() {
+
+for BASE in "${!RUNNING_PID[@]}"
+do
+  if [[ -z "${CURRENT_TUNNELS[$BASE]}" ]]; then
+    PID=${RUNNING_PID[$BASE]}
+    echo "Stopping removed tunnel $BASE (PID $PID)"
+    kill $PID 2>/dev/null || true
+    unset RUNNING_PID[$BASE]
+    unset RUNNING_KEY[$BASE]
+  fi
+done
+
+}
+
 tunnel_manager() {
 
 while true
@@ -71,12 +86,13 @@ RESPONSE=$(curl -s --max-time 15 \
 -H "Accept: application/json" \
 "$API_URL")
 
-# Validate JSON
 if ! echo "$RESPONSE" | jq -e . >/dev/null 2>&1; then
   echo "Tunnel API returned invalid response"
   sleep 30
   continue
 fi
+
+declare -A CURRENT_TUNNELS
 
 while read -r tunnel
 do
@@ -89,7 +105,8 @@ SECRET=$(echo "$tunnel" | jq -r '.cfClientSecret')
 BASE="$HOST:$PORT"
 FULL="$HOST:$PORT:$ID:$SECRET"
 
-# check if already running
+CURRENT_TUNNELS[$BASE]=1
+
 if [[ -n "${RUNNING_PID[$BASE]}" ]]; then
   PID=${RUNNING_PID[$BASE]}
 
@@ -101,7 +118,6 @@ if [[ -n "${RUNNING_PID[$BASE]}" ]]; then
   fi
 fi
 
-# start or restart tunnel
 start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
 
 done < <(
@@ -113,6 +129,8 @@ select(
   .port != null
 )'
 )
+
+cleanup_removed_tunnels
 
 sleep 30
 

@@ -8,9 +8,9 @@ RUN dotnet publish Api/ServiceStationApi.csproj -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-# Install curl + jq (curl downloads cloudflared, jq parses tunnel API JSON)
+# Install required tools
 RUN apt-get update \
-    && apt-get install -y curl jq \
+    && apt-get install -y curl jq procps \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /app/publish .
