@@ -44,7 +44,18 @@ echo "Starting tunnel for $BASE"
 --hostname "$HOST" \
 --url "localhost:$PORT" \
 --service-token-id "$ID" \
---service-token-secret "$SECRET" &
+--service-token-secret "$SECRET" \
+2>&1 | awk -v base="$BASE" '
+/failed to connect to origin/ {
+    now=systime()
+    if(now-last[base] > 30){
+        print strftime("%Y-%m-%d %H:%M:%S"), "[Tunnel]", base, $0
+        last[base]=now
+    }
+    next
+}
+{ print }
+' &
 
 PID=$!
 sleep 2
