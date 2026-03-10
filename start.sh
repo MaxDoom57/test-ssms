@@ -141,7 +141,7 @@ select(
 
 cleanup_removed_tunnels
 
-sleep 30
+sleep 120
 
 done
 
