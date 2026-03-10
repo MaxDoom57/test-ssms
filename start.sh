@@ -36,7 +36,7 @@ if [[ -n "${COOLDOWN_UNTIL[$BASE]}" && ${COOLDOWN_UNTIL[$BASE]} -gt $NOW ]]; the
 fi
 
 if is_port_listening "$PORT"; then
-  echo "[TUNNEL-MANAGER] Port $PORT already in use, skipping start"
+  echo "[TUNNEL-MANAGER] Port $PORT already in use, skipping start ($BASE)"
   return
 fi
 
@@ -57,7 +57,7 @@ if ps -p $PID > /dev/null; then
   RUNNING_PID[$BASE]=$PID
   RUNNING_KEY[$BASE]=$FULL
   FAIL_COUNT[$BASE]=0
-  echo "[TUNNEL-MANAGER] Tunnel started $BASE (PID $PID)"
+  echo "[TUNNEL-MANAGER] Tunnel started successfully → $BASE (PID $PID)"
 else
   FAIL_COUNT[$BASE]=$(( ${FAIL_COUNT[$BASE]:-0} + 1 ))
 
@@ -85,6 +85,21 @@ done
 
 }
 
+print_active_tunnels() {
+
+echo "[TUNNEL-MANAGER] Active tunnels:"
+
+if [ ${#RUNNING_PID[@]} -eq 0 ]; then
+  echo "  (none)"
+else
+  for BASE in "${!RUNNING_PID[@]}"
+  do
+    echo "  - $BASE"
+  done
+fi
+
+}
+
 tunnel_manager() {
 
 while true
@@ -99,6 +114,8 @@ RESPONSE=$(curl -s --max-time 15 \
 
 if ! echo "$RESPONSE" | jq -e . >/dev/null 2>&1; then
   echo "[TUNNEL-MANAGER] Invalid API response"
+  echo "[TUNNEL-MANAGER] Raw response:"
+  echo "$RESPONSE"
   sleep 30
   continue
 fi
@@ -124,7 +141,7 @@ if [[ -n "${RUNNING_PID[$BASE]}" ]]; then
   if ps -p $PID > /dev/null && is_port_listening "$PORT"; then
     continue
   else
-    echo "[TUNNEL-MANAGER] Tunnel died $BASE"
+    echo "[TUNNEL-MANAGER] Tunnel died → $BASE"
     kill $PID 2>/dev/null || true
     unset RUNNING_PID[$BASE]
   fi
@@ -143,6 +160,8 @@ select(
 )
 
 cleanup_removed_tunnels
+
+print_active_tunnels
 
 sleep 30
 
