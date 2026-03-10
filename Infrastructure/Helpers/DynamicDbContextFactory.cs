@@ -41,6 +41,7 @@ namespace Infrastructure.Helpers
                 throw new Exception("Server or database name missing.");
 
             string connString;
+
             if (!string.IsNullOrWhiteSpace(creds.DbUser))
             {
                 connString =
@@ -48,10 +49,10 @@ namespace Infrastructure.Helpers
                     $"Database={creds.DbName};" +
                     $"User ID={creds.DbUser};" +
                     $"Password={creds.DbPassword ?? ""};" +
-                    "Encrypt=False;" +
+                    "Encrypt=True;" +
                     "TrustServerCertificate=True;" +
                     "MultipleActiveResultSets=True;" +
-                    "Connection Timeout=60;";
+                    "Connection Timeout=120;";
             }
             else
             {
@@ -59,13 +60,13 @@ namespace Infrastructure.Helpers
                     $"Server={creds.DbServer};" +
                     $"Database={creds.DbName};" +
                     "Integrated Security=True;" +
-                    "Encrypt=False;" +
+                    "Encrypt=True;" +
                     "TrustServerCertificate=True;" +
                     "MultipleActiveResultSets=True;" +
-                    "Connection Timeout=60;";
+                    "Connection Timeout=120;";
             }
 
-            // LOG the connection attempt (mask password)
+            // Mask password in logs
             var displayConn = string.IsNullOrEmpty(creds.DbPassword)
                 ? connString
                 : connString.Replace(creds.DbPassword, "***");
@@ -75,17 +76,18 @@ namespace Infrastructure.Helpers
             try
             {
                 var builder = new DbContextOptionsBuilder<DynamicDbContext>();
+
                 builder.UseSqlServer(connString, options =>
                 {
                     options.EnableRetryOnFailure(
-                        maxRetryCount: 3,
-                        maxRetryDelay: TimeSpan.FromSeconds(10),
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(15),
                         errorNumbersToAdd: null);
                 });
 
                 var context = new DynamicDbContext(builder.Options);
 
-                // Force open connection immediately to catch errors here
+                // Force open connection immediately to detect errors early
                 await context.Database.OpenConnectionAsync();
 
                 return context;
