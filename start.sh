@@ -10,6 +10,8 @@ API_KEY="HAT@123"
 
 declare -A RUNNING_PID
 declare -A RUNNING_KEY
+declare -A FAIL_COUNT
+declare -A COOLDOWN_UNTIL
 
 start_tunnel() {
 
@@ -18,7 +20,18 @@ PORT=$2
 ID=$3
 SECRET=$4
 
-echo "Starting tunnel for $HOST:$PORT"
+BASE="$HOST:$PORT"
+FULL="$HOST:$PORT:$ID:$SECRET"
+
+NOW=$(date +%s)
+
+# cooldown check
+if [[ -n "${COOLDOWN_UNTIL[$BASE]}" && ${COOLDOWN_UNTIL[$BASE]} -gt $NOW ]]; then
+  echo "Tunnel $BASE in cooldown until ${COOLDOWN_UNTIL[$BASE]}"
+  return
+fi
+
+echo "Starting tunnel for $BASE"
 
 ./cloudflared access tcp \
 --hostname "$HOST" \
@@ -27,14 +40,23 @@ echo "Starting tunnel for $HOST:$PORT"
 --service-token-secret "$SECRET" &
 
 PID=$!
+sleep 2
 
-BASE="$HOST:$PORT"
-FULL="$HOST:$PORT:$ID:$SECRET"
+if ps -p $PID > /dev/null; then
+  RUNNING_PID[$BASE]=$PID
+  RUNNING_KEY[$BASE]=$FULL
+  FAIL_COUNT[$BASE]=0
+  echo "Tunnel started $BASE (PID $PID)"
+else
+  FAIL_COUNT[$BASE]=$(( ${FAIL_COUNT[$BASE]:-0} + 1 ))
 
-RUNNING_PID[$BASE]=$PID
-RUNNING_KEY[$BASE]=$FULL
+  echo "Tunnel start failed for $BASE attempt ${FAIL_COUNT[$BASE]}"
 
-echo "Tunnel started $BASE (PID $PID)"
+  if [[ ${FAIL_COUNT[$BASE]} -ge 3 ]]; then
+    COOLDOWN_UNTIL[$BASE]=$((NOW + 1800))
+    echo "Tunnel $BASE disabled for 30 minutes"
+  fi
+fi
 }
 
 tunnel_manager() {
@@ -49,22 +71,14 @@ RESPONSE=$(curl -s --max-time 15 \
 -H "Accept: application/json" \
 "$API_URL")
 
-# Validate JSON response
+# Validate JSON
 if ! echo "$RESPONSE" | jq -e . >/dev/null 2>&1; then
-  echo "Tunnel API returned invalid response:"
-  echo "$RESPONSE"
+  echo "Tunnel API returned invalid response"
   sleep 30
   continue
 fi
 
-# Filter valid tunnel rows only
-echo "$RESPONSE" | jq -c '.[] 
-| select(
-  .cfHostname != null and .cfHostname != "" and
-  .cfClientId != null and .cfClientId != "" and
-  .cfClientSecret != null and .cfClientSecret != "" and
-  .port != null
-)' | while read tunnel
+while read -r tunnel
 do
 
 HOST=$(echo "$tunnel" | jq -r '.cfHostname')
@@ -75,25 +89,30 @@ SECRET=$(echo "$tunnel" | jq -r '.cfClientSecret')
 BASE="$HOST:$PORT"
 FULL="$HOST:$PORT:$ID:$SECRET"
 
-if [[ -z "${RUNNING_KEY[$BASE]}" ]]; then
+# check if already running
+if [[ -n "${RUNNING_PID[$BASE]}" ]]; then
+  PID=${RUNNING_PID[$BASE]}
 
-    echo "Starting new tunnel $BASE"
-    start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
-
-elif [[ "${RUNNING_KEY[$BASE]}" != "$FULL" ]]; then
-
-    echo "Tunnel config changed for $BASE"
-
-    OLD_PID=${RUNNING_PID[$BASE]}
-    echo "Stopping old tunnel PID $OLD_PID"
-
-    kill $OLD_PID 2>/dev/null || true
-
-    start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
-
+  if ps -p $PID > /dev/null; then
+    continue
+  else
+    echo "Tunnel process died for $BASE"
+    unset RUNNING_PID[$BASE]
+  fi
 fi
 
-done
+# start or restart tunnel
+start_tunnel "$HOST" "$PORT" "$ID" "$SECRET"
+
+done < <(
+echo "$RESPONSE" | jq -c '.[] |
+select(
+  .cfHostname != null and .cfHostname != "" and
+  .cfClientId != null and .cfClientId != "" and
+  .cfClientSecret != null and .cfClientSecret != "" and
+  .port != null
+)'
+)
 
 sleep 30
 
