@@ -100,10 +100,7 @@ echo "=== Fetching tunnels ==="
 
 wake_api
 
-RESPONSE=$(curl -s --max-time 15 
--H "X-Api-Key: $API_KEY" 
--H "Accept: application/json" 
-"$API_URL")
+RESPONSE=$(curl -s --max-time 15 -H "X-Api-Key: $API_KEY" -H "Accept: application/json" "$API_URL")
 
 if ! echo "$RESPONSE" | jq -e . >/dev/null 2>&1; then
 echo "Tunnel API returned invalid response"
@@ -160,7 +157,7 @@ done
 echo "=== Starting ServiceStationApi ==="
 dotnet ServiceStationApi.dll --urls "[http://0.0.0.0:${PORT:-10000}](http://0.0.0.0:${PORT:-10000})" &
 
-sleep 10
+sleep 5
 
 echo "=== Starting tunnel manager ==="
 tunnel_manager
